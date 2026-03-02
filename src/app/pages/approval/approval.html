@@ -1,0 +1,133 @@
+<div class="page-container">
+  <div class="page-header">
+    <div class="header-content">
+      <h1>巢狀表單</h1>
+      <p class="text-muted">Nested Form</p>
+    </div>
+  </div>
+
+  <div class="wrap mb-4">
+    <table mat-table [dataSource]="(approvalData$ | async) || []">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>規則 Rule</th>
+        <td mat-cell *matCellDef="let row">{{ row.approvalName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="levels">
+        <th mat-header-cell *matHeaderCellDef>審核層級 Levels</th>
+        <td mat-cell *matCellDef="let row">{{ row.approvalLevels.length }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="level1">
+        <th mat-header-cell *matHeaderCellDef>第一層 Level1</th>
+        <td mat-cell *matCellDef="let row">
+          @for (item of row.approvalLevels[0]?.approvers; track $index) {
+            <span>{{ item.name }}</span
+            ><br />
+          }
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="level2">
+        <th mat-header-cell *matHeaderCellDef>第二層 Level2</th>
+        <td mat-cell *matCellDef="let row">
+          @for (item of row.approvalLevels[1]?.approvers; track $index) {
+            <span>{{ item.name }}</span
+            ><br />
+          }
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="level3">
+        <th mat-header-cell *matHeaderCellDef>第三層 Level3</th>
+        <td mat-cell *matCellDef="let row">
+          @for (item of row.approvalLevels[2]?.approvers; track $index) {
+            <span>{{ item.name }}</span
+            ><br />
+          }
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="management">
+        <th mat-header-cell *matHeaderCellDef>管理 Management</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="editApprovalRule(row.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteApprovalRule(row.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+    </table>
+
+    <button mat-stroked-button color="primary" (click)="addApprovalRule()">
+      <mat-icon matIconButton color="primary">add</mat-icon> 新增規則 Add Rule
+    </button>
+  </div>
+
+  @if (isEditing) {
+    <div class="wrap">
+      <form [formGroup]="form" class="row">
+        <mat-form-field appearance="outline" class="col-xs-12">
+          <mat-label>規則名稱 Rule Title</mat-label>
+          <input matInput formControlName="approvalName" />
+        </mat-form-field>
+
+        <div class="col-xs-12" formArrayName="approvalLevels">
+          @for (item of approvalLevelArray; track $index; let i = $index) {
+            <app-approval-level
+              [levelForm]="item"
+              [index]="i"
+              (remove)="removeApprovalLevel(i)"
+            ></app-approval-level>
+          }
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="col-xs-12"
+          (click)="addApprovalLevel()"
+          [disabled]="
+            approvalLevels.controls.length >= 3 ||
+            !isApprovalNameValid ||
+            !isApprovalLevelsValid
+          "
+        >
+          <mat-icon>add</mat-icon>新增層級 Add Level
+        </button>
+      </form>
+    </div>
+
+    <div class="header-actions d-flex justify-content-end">
+      <button mat-stroked-button color="warn" class="mx-4" (click)="onCancel()">
+        取消 Cancel
+      </button>
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="
+          !isApprovalNameValid ||
+          !isApprovalLevelsValid ||
+          approvalLevels.controls.length === 0
+        "
+        (click)="onSubmit()"
+      >
+        <mat-icon>save</mat-icon>儲存 Save
+      </button>
+    </div>
+  }
+</div>

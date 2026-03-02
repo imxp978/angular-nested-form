@@ -1,0 +1,134 @@
+.wrap {
+  margin: 5px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  overflow-x: hidden !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+}
+
+form {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+:host {
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.level-delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
+form {
+  width: 100%;
+}
+
+.row {
+  width: 100%;
+  margin: 0; /* 移除 Bootstrap row 預設的負 margin 防止溢出 */
+}
+
+mat-label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #666;
+  width: 100%;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sub-wrap {
+  position: relative; /* 讓內部的 add-btn 可以絕對定位 */
+  background-color: #eff9ffce;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.add-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.setting-section {
+  flex: 0 0 250px;
+}
+
+.approver-section {
+  flex: 1;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+  display: block;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.approver-item {
+  position: relative; 
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px 40px 12px 12px; 
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.approver-item:hover {
+  border-color: #dee2e6;
+  background-color: #f1f3f5;
+}
+
+.approver-item h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.approver-item p {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #7f8c8d;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.approver-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}

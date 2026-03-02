@@ -1,0 +1,11 @@
+/* 引入 Angular Material 的預設主題 (內建四種，這是其中一種) */
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

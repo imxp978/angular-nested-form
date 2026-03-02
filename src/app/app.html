@@ -1,0 +1,33 @@
+<div class="app-container">
+  <mat-toolbar color="primary">
+    <nav class="sidebar-nav">
+      <!-- <button class="nav-item" routerLink="position-tier" routerLinkActive="active">
+          <mat-icon>domain</mat-icon> Job Grades
+        </button>
+        <button class="nav-item" routerLink="promotion-policy" routerLinkActive="active">
+          <mat-icon>account_tree</mat-icon> Workflow Config
+        </button> -->
+      <button
+        mat-button
+        class="nav-item"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <mat-icon>home</mat-icon>首頁 Home
+      </button>
+      <button
+        mat-button
+        class="nav-item"
+        routerLink="approval"
+        routerLinkActive="active"
+      >
+        <mat-icon>dynamic_form</mat-icon> 巢狀表單 Nested Form
+      </button>
+    </nav>
+  </mat-toolbar>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

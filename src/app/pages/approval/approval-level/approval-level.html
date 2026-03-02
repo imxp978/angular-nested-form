@@ -1,0 +1,46 @@
+<div class="wrap mb-4">
+  <h4>第 {{index() + 1}} 層</h4>
+  @if (levelForm(); as form ) {
+    <form [formGroup]="form">
+      <!-- 刪除整層的按鈕 (絕對定位，不影響 grid) -->
+      <button type="button" mat-icon-button color="warn" class="level-delete-btn" (click)="remove.emit()">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <!-- 確保 col 被包在 row 裡面，且佔滿寬度 -->
+      <div class="row w-100 mt-5">
+        <!-- 左側：設定 -->
+        <div class="col-3">
+          <div class="sub-wrap h-100">
+            <mat-label>審核規則 Setting</mat-label>
+            <mat-radio-group formControlName="setting">
+              @for (item of settingList; track item.id){
+                <mat-radio-button [value]="item.id">{{item.name}}</mat-radio-button>
+              }
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <!-- 右側：審核人 -->
+        <div class="col-9">
+          <div class="sub-wrap">
+            <mat-label>審核人員 Approvers</mat-label>
+            <mat-icon class="add-btn" color="primary" (click)="onAddApprover()">add_circle</mat-icon>
+            
+            <div formArrayName="approvers" class="approver-list">
+              @for (item of approverArray.controls; track item; let i = $index){
+                <div class="approver-item">
+                  <button type="button" mat-icon-button color="warn" class="delete-btn" (click)="onRemoveApprover(i)">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                  <h4>{{item.value.name}}</h4>
+                  <p>{{item.value.title}}</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  }
+</div>
