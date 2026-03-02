@@ -86,7 +86,7 @@
           <input matInput formControlName="approvalName" />
         </mat-form-field>
 
-        <div class="col-xs-12" formArrayName="approvalLevels">
+        <div class="col-12" formArrayName="approvalLevels">
           @for (item of approvalLevelArray; track $index; let i = $index) {
             <app-approval-level
               [levelForm]="item"
@@ -99,7 +99,7 @@
         <button
           mat-raised-button
           color="primary"
-          class="col-xs-12"
+          class="col-12"
           (click)="addApprovalLevel()"
           [disabled]="
             approvalLevels.controls.length >= 3 ||

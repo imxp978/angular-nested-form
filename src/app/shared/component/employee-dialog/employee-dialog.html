@@ -1,23 +1,28 @@
 <div class="dialog-wrap">
   <h2 mat-dialog-title>員工 Employees</h2>
-  
+
   <mat-dialog-content>
-    <mat-radio-group [formControl]="selectedEmployee">
-      @for (item of employeeList; track item.id){
-        <mat-card class="employee-card">
-          <mat-radio-button [value]="item"></mat-radio-button>
-          <h4>{{item.name}}</h4>
-          <p>{{item.title}}</p>
-        </mat-card>
-      }    
+    <mat-radio-group [formControl]="selectedEmployee" class="row g-3">
+      @for (item of employeeList; track item.id) {
+        <div class="col-12 col-md-4">
+          <mat-card class="employee-card">
+            <mat-radio-button [value]="item"></mat-radio-button>
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.title }}</p>
+          </mat-card>
+        </div>
+      }
     </mat-radio-group>
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>取消 Cancel</button>
-    <button mat-raised-button color="primary" 
-            [mat-dialog-close]="selectedEmployee.value" 
-            [disabled]="selectedEmployee.invalid">
+    <button
+      mat-raised-button
+      color="primary"
+      [mat-dialog-close]="selectedEmployee.value"
+      [disabled]="selectedEmployee.invalid"
+    >
       確定 Confirm
     </button>
   </mat-dialog-actions>

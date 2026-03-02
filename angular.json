@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "approval-demo": {
+    "angular-nested-form": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "approval-demo:build:production"
+              "buildTarget": "angular-nested-form:build:production"
             },
             "development": {
-              "buildTarget": "approval-demo:build:development"
+              "buildTarget": "angular-nested-form:build:development"
             }
           },
           "defaultConfiguration": "development"

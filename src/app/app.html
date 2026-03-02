@@ -1,16 +1,10 @@
 <div class="app-container">
   <mat-toolbar color="primary">
     <nav class="sidebar-nav">
-      <!-- <button class="nav-item" routerLink="position-tier" routerLinkActive="active">
-          <mat-icon>domain</mat-icon> Job Grades
-        </button>
-        <button class="nav-item" routerLink="promotion-policy" routerLinkActive="active">
-          <mat-icon>account_tree</mat-icon> Workflow Config
-        </button> -->
       <button
         mat-button
         class="nav-item"
-        routerLink="/"
+        routerLink="/home"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -19,7 +13,7 @@
       <button
         mat-button
         class="nav-item"
-        routerLink="approval"
+        routerLink="/approval"
         routerLinkActive="active"
       >
         <mat-icon>dynamic_form</mat-icon> 巢狀表單 Nested Form

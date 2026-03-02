@@ -30,6 +30,12 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   overflow-x: hidden !important;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
+  overflow-x: auto !important;
+}
+
+table {
+  width: 100%;
+  min-width: 800px;
 }
 
 .base-info-card {
