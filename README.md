@@ -1,60 +1,24 @@
-# Nested Form
-Demo: https://imxp978.github.io/angular-nested-form
+# Angular Dynamic Approval Workflow
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+**Live Demo**: https://imxp978.github.io/angular-nested-form
 
-## Development server
+A reusable multi-level approval workflow component built with Angular 20,
+demonstrating advanced Reactive Forms patterns for enterprise applications.
 
-To start a local development server, run:
+## What This Demonstrates
 
-```bash
-ng serve
-```
+- Dynamic nested FormArray — add/remove approval levels and approvers at runtime
+- Cross-level form validation with real-time feedback
+- Modern Angular patterns: standalone components, inject(), takeUntilDestroyed()
+- Clean component architecture with parent/child form communication
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Use Case
 
-## Code scaffolding
+Approval workflows are common in ERP, CRM, and HR systems.
+This component handles variable approval chains
+(e.g. 1–5 levels, each with multiple approvers)
+without hardcoding form structure.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tech Stack
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Angular 20 · TypeScript · Reactive Forms · Angular Material · RxJS
